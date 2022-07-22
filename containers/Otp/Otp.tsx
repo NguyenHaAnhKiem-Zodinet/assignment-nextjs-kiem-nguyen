@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 import styleCss from './Otp.module.scss';
 
-import Link from 'next/link';
+import QRCode from 'react-qr-code';
 import { Label, Input, Button, TitleText } from '../../components';
 
 export const Otp = ({ formik }: ILogin) => {
@@ -38,6 +38,16 @@ export const Otp = ({ formik }: ILogin) => {
               <b>{formik.errors.otp}</b>
             </div>
           )}
+        </article>
+        <article className={styleCss.otp__item}>
+          <Label htmlFor="" content="Scan Code" style={cssLabel} />
+          <div className={styleCss.otp__otp}>
+            <QRCode
+              value={process.env.NEXT_PUBLIC_URL_SCAN_OTP as string}
+              title="Google"
+              size={200}
+            />
+          </div>
         </article>
         <article className={styleCss.otp__item}>
           <Button

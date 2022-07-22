@@ -17,4 +17,9 @@
     &__item {
         margin-bottom: 1.3rem;
     }
+
+    &__otp {
+        @include elementCenter();
+        margin-top: 1rem;
+    }
 }
